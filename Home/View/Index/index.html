@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>学生信息管理中心</title>
+
+</head>
+<body>
+<a href="?p=Home&c=Student">学生管理</a> | 
+<a href="?p=Home&c=News">新闻管理</a><hr>
+
+<div style="text-align:center;padding-bottom: 10px;">
+	<h2>学生信息管理中心(前台)</h2>
+	<a href="?p=Home&c=Student&a=add">添加学生</a>
+	共有<font color=red>234</font>个学生
+</div>
+<table width="600" border="1" align="center" rules="all" cellpadding="5">
+	<tr bgcolor='#ccc'>
+		<th>编号</th>
+		<th>姓名</th>
+		<th>性别</th>
+		<th>年龄</th>
+		<th>学历</th>
+		<th>工资</th>
+		<th>奖金</th>
+		<th>籍贯</th>
+		<th>操作选项</th>
+	</tr>
+	<?php  foreach ($arrs as $arr) {?>
+	<tr align="center">
+		<td> <?php echo $arr['id']?></td>
+		<td> <?php echo $arr['name']?></td>
+		<td> <?php echo $arr['sex'] ?></td>
+		<td> <?php echo $arr['age'] ?></td>
+		<td> <?php echo $arr['edu'] ?></td>
+		<td> <?php echo $arr['salary'] ?></td>
+		<td> <?php echo $arr['bonuns'] ?></td>
+		<td> <?php echo $arr['city'] ?></td>
+		<td>
+			<a href="?p=Home&c=Student&a=edit&id=<?php echo $arr['id']?>">修改</a> | 
+			<a href="javascript:void(0)"  onclick="deletes(<?php echo $arr['id']?>)">删除</a>
+		</td>
+	</tr>
+	<?php  }?>
+</table>
+<script>
+	function deletes(id){
+		window.location.href = "?p=Home&c=Student&a=delete&id="+id;
+	}
+
+</script>
+</body>
+</html>
