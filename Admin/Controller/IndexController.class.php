@@ -1,14 +1,29 @@
-<?php  
+<?php
+
 namespace Admin\Controller;
-use  Admin\Model\IndexModel;
-class IndexController{
-    public  function index(){
 
-      // 创建模型类对象
-      $modelObj = new IndexModel();
+use Frame\libs\BaseController;
 
-      $arrs = $modelObj->getDatas();
-        
-       include(VIEW_PATH."Index".DS."index.html");
-    }
+class IndexController extends BaseController
+{
+  public  function index()
+  {
+    $this->smartyObj->display('./Index/index.html');
+  }
+  public function top()
+  {
+    $this->smartyObj->display('./Index/top.html');
+  }
+  public function main()
+  {
+    $this->smartyObj->display('./Index/main.html');
+  }
+  public function left()
+  {
+    $this->smartyObj->display('./Index/left.html');
+  }
+  public function center()
+  {
+    $this->smartyObj->display('./Index/center.html');
+  }
 }

@@ -38,11 +38,11 @@ final class Frame
         });
     }
     private static function initController()
-    {
-       
+    {     
         $controlName = PLATFOM . "\Controller" . "\\" . CONTROLLER."Controller";
-       
         $ControlObj = new $controlName();
-        $ControlObj->index();
+        $A = ACTION;
+        // 这里不能写死，这里就是路由的分发
+        $ControlObj->$A();
     }
 }

@@ -1,5 +1,5 @@
 <?php  
-namespace Frame\Libs;
+namespace Frame\libs;
 use Frame\Vendors\Smarty;
 class BaseController{
     protected $smartyObj;
@@ -16,5 +16,11 @@ class BaseController{
         $smarty->setCompileDir(sys_get_temp_dir());
         
         $this->smartyObj = $smarty;  
+    }
+    public function resultHandle($messgae, $time, $url)
+    {
+        echo "$messgae!";
+        header("refresh:{$time};url={$url}");
+        die();
     }
 }
