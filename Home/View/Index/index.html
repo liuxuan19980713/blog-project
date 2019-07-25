@@ -26,22 +26,22 @@
 		<th>籍贯</th>
 		<th>操作选项</th>
 	</tr>
-	<?php  foreach ($arrs as $arr) {?>
+	{<foreach $arrs as $arr>}
 	<tr align="center">
-		<td> <?php echo $arr['id']?></td>
-		<td> <?php echo $arr['name']?></td>
-		<td> <?php echo $arr['sex'] ?></td>
-		<td> <?php echo $arr['age'] ?></td>
-		<td> <?php echo $arr['edu'] ?></td>
-		<td> <?php echo $arr['salary'] ?></td>
-		<td> <?php echo $arr['bonuns'] ?></td>
-		<td> <?php echo $arr['city'] ?></td>
+		<td>{<$arr['id']>}</td>
+		<td>{<$arr['name']>}</td>
+		<td>{<$arr['sex']>}</td>
+		<td>{<$arr['age']>}</td>
+		<td>{<$arr['edu']>}</td>
+		<td>{<$arr['salary']>}</td>
+		<td>{<$arr['bonuns']>}</td>
+		<td>{<$arr['city']>}</td>
 		<td>
-			<a href="?p=Home&c=Student&a=edit&id=<?php echo $arr['id']?>">修改</a> | 
-			<a href="javascript:void(0)"  onclick="deletes(<?php echo $arr['id']?>)">删除</a>
+			<a href="?ac=edit&id={$arr['id']}">修改</a> | 
+			<a href="javascript:void(0)"  onclick="deletes({$arr['id']})">删除</a>
 		</td>
 	</tr>
-	<?php  }?>
+	{</foreach>}
 </table>
 <script>
 	function deletes(id){

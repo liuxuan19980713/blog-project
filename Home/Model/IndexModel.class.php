@@ -1,10 +1,14 @@
-<?php  
+<?php
+
 namespace Home\Model;
-use  Frame\libs\Db;
-class IndexModel{
-    public function getDatas(){
-        $db = Db::newObject();     
+
+use Frame\libs\BaseModel;
+
+class IndexModel extends BaseModel
+{
+    public function getDatas()
+    {
         $sql = "select * from itcast";
-        return $db->fetchAllDatas($sql);
+        return  $this->pdoWrapper->fetchAll($sql);
     }
 }
