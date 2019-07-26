@@ -15,16 +15,16 @@
 		<td height="30">
 		<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#f0f0f0" >
 			<tr class="tr_southidc"> 
-				<td width="38%" height="23" bgcolor="#fcfcfc">用户名：<font class="t4">admin</font></td>
-				<td width="62%" bgcolor="#fcfcfc">IP地址：<font class="t4">127.0.0.1</font></td>
+				<td width="38%" height="23" bgcolor="#fcfcfc">用户名：<font class="t4">{<$smarty.session.username>}</font></td>
+				<td width="62%" bgcolor="#fcfcfc">IP地址：<font class="t4">{<$smarty.server.REMOTE_ADDR>}</font></td>
 			</tr>
 			<tr class="tr_southidc"> 
 				<td width="38%" height="23" bgcolor="#fcfcfc">身份过期：<font class="t4">1440秒</font></td>
-				<td width="62%" bgcolor="#fcfcfc">登录时间：<font class="t4">2016年12月02日</font></td>
+				<td width="62%" bgcolor="#fcfcfc">登录时间：<font class="t4">{<$smarty.now|date_format:'%Y-%m-%d %H:%M:%S'>}</font></td>
 			</tr>
 			<tr class="tr_southidc"> 
-				<td width="38%" height="23" bgcolor="#fcfcfc">服务器域名：<font class="t4">http://www.2017.cn</font></td>
-				<td width="62%" bgcolor="#fcfcfc">PHP环境：<font class="t4">Apache/2.2.22 (Win32) PHP/5.3.13</font></td>
+				<td width="38%" height="23" bgcolor="#fcfcfc">服务器域名：<font class="t4">{<$smarty.server.SERVER_NAME>}</font></td>
+				<td width="62%" bgcolor="#fcfcfc">PHP环境：<font class="t4">{<$smarty.server.SERVER_SOFTWARE>}</font></td>
 			</tr>
 			<tr class="tr_southidc"> 
 				<td height="23" bgcolor="#fcfcfc">官方网站：<font class="t4"> <a href="http://www.itcast.cn" target="_blank">www.itcast.cn</a></font></td>

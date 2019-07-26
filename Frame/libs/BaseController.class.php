@@ -23,4 +23,9 @@ class BaseController{
         header("refresh:{$time};url={$url}");
         die();
     }
+    public  function  isLogin(){
+        if(empty($_SESSION['username'])){
+            header("refresh:0;url=?c=User&a=login");
+        }
+    }
 }

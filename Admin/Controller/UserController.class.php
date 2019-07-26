@@ -11,6 +11,7 @@ class UserController extends BaseController
 {
     public function index()
     {
+        $this->isLogin();
         $modelObj = UserModel::createObj();
         $sql = "select * from user order by id desc";
         $arrs = $modelObj->getIndexData($sql);
@@ -19,6 +20,7 @@ class UserController extends BaseController
     }
     public function delete()
     {
+        $this->isLogin();
         $modelObj = UserModel::createObj();
         $id = $_GET['deleteid'];
         $sql = "delete from user where id={$id}";
@@ -31,10 +33,12 @@ class UserController extends BaseController
     }
     public function add()
     {
+        $this->isLogin();
         $this->smartyObj->display('./User/add.html');
     }
     public function insert()
     {
+        $this->isLogin();
         $modelObj = UserModel::createObj();
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -63,6 +67,7 @@ class UserController extends BaseController
     }
     public function edit()
     {
+        $this->isLogin();
         $editId = $_GET['editid'];
         // 先从数据库中获取对应id的数据显示到界面上
         $modelObj = UserModel::createObj();
@@ -74,6 +79,7 @@ class UserController extends BaseController
     }
     public function update()
     {
+        $this->isLogin();
         $updateId = $_GET['updateid'];
         die($updateId);
     }
@@ -117,13 +123,19 @@ class UserController extends BaseController
         $_SESSION['username'] = $arr['username'];
         // 跳转 登陆成功的话跳转到admin.php
         echo "登录成功，三秒后跳转到用户首页";
-        header('refresh:3;url="?c=User&a=index"');
+        header('refresh:3;url="?"');
     }
     public function verifi()
     {
-
         $verify = new VerificationCode();
         var_dump(($verify));
         die();
+    }
+    public function logout(){
+        // 清除session和session文件
+       unset($_SESSION['username']);
+       unset($_SESSION['id']);
+       session_destroy();
+       header("location:?c=User&a=login");
     }
 }

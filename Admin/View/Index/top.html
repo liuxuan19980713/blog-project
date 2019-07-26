@@ -38,11 +38,11 @@ window.onload = showTime;
 	<div class="top1">
 		<ul>
 			<li>
-				<a target="main" href="#" class="exit">
+				<a target="_top" href="?c=User&a=logout" class="exit">
 					<img style="border:none;" src="./Public/Admin/Images/tuichu.gif">
 				</a>
 			</li>
-			<li><a target="_top" href="javascript:void(0)">Admin</a>，欢迎你！</li>
+			<li><a target="_top" href="javascript:void(0)">{<$smarty.session.username>}</a>，欢迎你！</li>
 			<li id="showTime"></li>
 		</ul>
 		<div class="clear"></div>
