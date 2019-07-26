@@ -12,6 +12,7 @@ final class Frame
     }
     private static function initConfig()
     {
+        session_start();
         $GLOBALS['config'] = require_once(HOME_PATH . DS . "Config" . DS . "Config.php");
     }
     private static function initConst()
@@ -31,6 +32,7 @@ final class Frame
     private static function initAutoload()
     {
         spl_autoload_register(function ($className) {
+            # 这里的className是带有命名空间的类
             //通过命名空间来构建路径
             $fileName = ROOT_PATH."$className".".class.php";      
             $fileName = str_replace("\\",DS,$fileName);         
@@ -39,6 +41,7 @@ final class Frame
     }
     private static function initController()
     {     
+        #  例如 Home\Controller\IndexController
         $controlName = PLATFOM . "\Controller" . "\\" . CONTROLLER."Controller";
         $ControlObj = new $controlName();
         $A = ACTION;

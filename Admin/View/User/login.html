@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <title>管理员登录</title>
-<link href="./Css/public.css"   rel="stylesheet" type="text/css" />
-<link href="./Css/login.css" rel="stylesheet" type="text/css" />
+<link href="./Public/Admin/Css/public.css"   rel="stylesheet" type="text/css" />
+<link href="./Public/Admin/Css/login.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 //初始设置用户名为当前焦点
 function SetFocus()
@@ -19,11 +19,11 @@ function SetFocus()
 </head>
 <body>
 <center>
-<form name="form1" method="post" action="" id="form1" onSubmit="return checkForm();">
+<form name="form1" method="post" action="?c=User&a=loginCheck" id="form1" onSubmit="return checkForm();">
 <div id="position">
 	<div id="inposition">
 		<div class="login-left">
-			<div class="login-left-logo"><img src="./Images/logo.png"  width="296" height="50" /></div>
+			<div class="login-left-logo"><img src="./Public/Admin/Images/logo.png"  width="296" height="50" /></div>
 			<div class="login-left-content">
 				<ul>
 					<li>为莘莘学子改变命运而讲课，为千万学生少走弯路而著书</li>
@@ -47,7 +47,8 @@ function SetFocus()
 					</tr> 
 					<tr>
 						<td align="right">验证码：</td>
-						<td><input id="verify" name="verify"  class="input2" maxlength="4">&nbsp;<img style="float:right" width="70" src="./Images/yanzhengma2.png" /></td>
+						<td><input id="verify" name="verify"  class="input2" maxlength="4">&nbsp;
+							<img style="float:right" width="70" src="?c=User&a=verifi" id="yanzhengma"/></td>
 					</tr>
 					<tr>
 						<td style="height: 30px" align="right"></td>
@@ -67,16 +68,20 @@ function SetFocus()
 <!--顶部背景DIV-->
 <div id="header"></div>
 <!--欢迎光临-->
-<div id="content"><img src="./Images/login-wel.gif" /></div>
+<div id="content"><img src="./Public/Admin/Images/login-wel.gif" /></div>
 <div id="buttom">
 	<div class="copy2">
 		<nobr>Copyright &copy; 2006-<?php echo date("Y")?>&nbsp;&nbsp;itcast.cn All Rights Reserved.</nobr>
 	</div>
-	<div class="copy"><img src="./Images/login-copy.gif" /></div>
+	<div class="copy"><img src="./Public/Admin/Images/login-copy.gif" /></div>
 </div>
 </body>
 </html>
 <script language="javascript">
+	document.getElementById('yanzhengma').onclick = function(){
+		console.log(1);
+		this.src= "?c=User&a=verifi&"+Math.random();
+	}
 SetFocus();
 function checkForm()
 {
