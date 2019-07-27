@@ -17,4 +17,7 @@ class CategoryModel extends BaseModel{
         }
         return $this->categoryDatas;
     }
+    public  function delete_insert_updata($sql){
+        return $this->pdoWrapper->delete_insert_update($sql);
+    }
 }

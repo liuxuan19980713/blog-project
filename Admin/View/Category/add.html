@@ -17,7 +17,7 @@
 	</tr>
 </table>
 <br />
-<form name="form1" method="post" action="">
+<form name="form1" method="post" action="?c=Category&a=insert">
 <table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="border">
 	<tr class="title">
 		<td colspan="2" align="center">添加文章分类</td>
@@ -38,8 +38,9 @@
 		<td>
 			<select name="pid">
 				<option value="0">无</option>
-				<option value="1">----新闻咨询</option>
-				<option value="2">--------国内新闻</option>
+				{<foreach $arrs as $arr>}
+				<option value="{<$arr.id>}">{<str_repeat('----',$arr['level'])>}{<$arr['classname']>}</option>
+				{</foreach>}
 			</select>
 		</td>
 	</tr>
